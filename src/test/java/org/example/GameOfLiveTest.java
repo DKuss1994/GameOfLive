@@ -1,44 +1,56 @@
 package org.example;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.example.GameOfLive.creatField;
 
+
 import org.junit.jupiter.api.Test;
 
-public class GameOfLiveTest {
+import java.util.Arrays;
 
+class GameOfLiveTest {
+    int height = 10;
+    int width = 10;
 
     @Test
-    void fieldShouldCreate() {
-        int height;
-        int weidht;
-        height = 10;
-        weidht = 10;
+    void fieldShouldCreateTest() {
 
 
-        boolean [][] field = creatField(height,weidht);
-        //prüft ob länge gleich länge ist
+        boolean[][] field = creatField(height, width);
+
+        // prüft ob Länge stimmt
         assertThat(field.length).isEqualTo(height);
-        assertThat(field[0].length).isEqualTo(weidht);
-
-
+        assertThat(field[0].length).isEqualTo(width);
     }
+
     @Test
-    void fieldShouldDead(){
-        int height;
-        int weidht;
-        height = 10;
-        weidht = 10;
+    void fieldShouldDead() {
 
-        boolean[][] field = creatField(height,weidht);
-        for(int x = 0; x<field.length;x++){
-            for(int y = 0; y<field[x].length;y++){
-                assertThat(field[y][x]).isEqualTo(false);
+        boolean[][] field = creatField(height, width);
 
+        for (int x = 0; x < field.length; x++) {
+            for (int y = 0; y < field[x].length; y++) {
+                assertThat(field[x][y]).isFalse();
             }
         }
-
     }
 
+    @Test
+    void printFieldtest() {
+        String[][] testField = new String[height][width];
+        for (int y = 0; y < testField.length; y++) {
+            for (int x = 0; x < testField[y].length; x++) {
+                testField[y][x] = " ";
+            }
+        }
+        for (int y = 0; y < testField.length; y++) {
+            assertThat(printField(field) == System.out.println(Arrays.toString(testField[y])));
+
+        }
+    }
+
+    @Test
+    void overPopulationtest() {
+        // TODO: später implementieren
+    }
 }
-
-
