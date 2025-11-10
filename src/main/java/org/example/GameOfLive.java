@@ -1,26 +1,27 @@
 package org.example;
+
 import java.util.Arrays;
 
 
 public class GameOfLive {
+    static int count;
+    static int height;
+    static int width;
+
     static void main() {
-        int count;
-        count = 0;
-        boolean[][] field = creatField(3, 3);
-    String[][]field_test = new String[3][3];
+        width = 10;
+        height = 10;
+
+        boolean[][] field = createField(height, width);
 
 
-        for(int x = 0; x<3;x++){
-            System.out.println(Arrays.toString(field[x]));
-        }
+    }
 
-    
-        }
-    public static boolean[][] creatField(int heidht, int weidht){
+    public static boolean[][] createField(int height, int width) {
         boolean[][] field;
-        field = new boolean[heidht][weidht];
-        for(int x = 0; x < weidht; x++){
-            for (int y = 0; y< heidht; y++){
+        field = new boolean[height][width];
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
                 field[y][x] = false;
             }
         }
@@ -28,5 +29,21 @@ public class GameOfLive {
 
 
     }
+
+    public static void printField(boolean[][] field) {
+
+        String[][] printField = new String[field.length][field[0].length];
+        for (int y; y < field.length; y++) {
+            for (int x; x < field[y].length; x++) {
+                if (field[y][x]) {
+                    printField[y][x] = " ";
+                } else {
+                    printField[y][x] = "0";
+                }
+            }
+        }
+
+
     }
+}
 

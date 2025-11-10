@@ -1,7 +1,7 @@
 package org.example;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.example.GameOfLive.creatField;
+import static org.example.GameOfLive.createField;
 
 
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ class GameOfLiveTest {
     void fieldShouldCreateTest() {
 
 
-        boolean[][] field = creatField(height, width);
+        boolean[][] field = createField(height, width);
 
         // prüft ob Länge stimmt
         assertThat(field.length).isEqualTo(height);
@@ -26,7 +26,7 @@ class GameOfLiveTest {
     @Test
     void fieldShouldDead() {
 
-        boolean[][] field = creatField(height, width);
+        boolean[][] field = createField(height, width);
 
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
