@@ -1,8 +1,7 @@
 package org.example;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.example.GameOfLive.createField;
-import static org.example.GameOfLive.printField;
+import static org.example.GameOfLive.*;
 
 
 import org.junit.jupiter.api.Nested;
@@ -42,7 +41,7 @@ class GameOfLiveTest {
     }
 
     @Test
-    void printFieldtest() {
+    void printFieldTest() {
         boolean [][] field = createField(height,width);
         String [][] newField = new String[height][width];
         for (int y = 0; y < field.length; y++) {
@@ -61,7 +60,36 @@ class GameOfLiveTest {
     }
     @Test
     void overPopulationtest() {
-        // TODO: später implementieren
+        int ax;
+        int ay;
+
+    }
+    @Test
+    void checkNeighborTest1IntheMiddel(){
+        height = 3;
+        width = 3;
+        int ax = 1;
+        int ay = 1;
+
+     assertThat(checkNeighbor(ax,ay,height,width)).isEqualTo(8);
+    }
+    @Test
+    void checkNeighborTest1IntheCorne(){
+        height = 8;
+        width = 8;
+        int ax = 0;
+        int ay = 0;
+
+     assertThat(checkNeighbor(ax,ay,height,width)).isEqualTo(3);
+    }
+    @Test
+    void checkNeighborTest1IntheCorneRight(){
+        height = 8;
+        width = 8;
+        int ax = 7;
+        int ay = 7;
+
+     assertThat(checkNeighbor(ax,ay,height,width)).isEqualTo(3);
     }
 
 }
