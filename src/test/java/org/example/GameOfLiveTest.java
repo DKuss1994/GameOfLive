@@ -60,8 +60,13 @@ class GameOfLiveTest {
     }
     @Test
     void overPopulationtest() {
-        int ax;
-        int ay;
+        height = 3;
+        width = 3;
+        int ax = 1;
+        int ay = 1;
+        boolean[][]field = createFieldTrue(height,width);
+        field[ax][ay] = false;
+        assertThat(overPolpulation(ax,ay,height,width)).isEqualTo(field);
 
     }
     @Test

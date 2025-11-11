@@ -72,11 +72,6 @@ public class GameOfLive {
         int nx;
         boolean[][] field = createFieldTrue(height, width);
         count = 0;
-        /*
-        {0,0,0}
-        {0,X,0}
-        {0,0,0}*/
-
         for(int y = -1; y<=1;y++){
             for(int x = -1;x<= 1;x++){
                 ny =ay+ y;
@@ -96,6 +91,10 @@ public class GameOfLive {
 
 
         return count;
+    }
+    public static boolean[][] overPolpulation(int ax,int ay,int height,int width){
+        // new
+        return
     }
 }
 
