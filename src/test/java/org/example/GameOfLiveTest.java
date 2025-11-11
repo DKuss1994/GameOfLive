@@ -4,13 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.example.GameOfLive.*;
 
 
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.Arrays;
-
 
 
 class GameOfLiveTest {
@@ -42,8 +36,8 @@ class GameOfLiveTest {
 
     @Test
     void printFieldTest() {
-        boolean [][] field = createField(height,width);
-        String [][] newField = new String[height][width];
+        boolean[][] field = createField(height, width);
+        String[][] newField = new String[height][width];
         for (int y = 0; y < field.length; y++) {
             for (int x = 0; x < field[y].length; x++) {
                 if (field[y][x]) {
@@ -58,17 +52,35 @@ class GameOfLiveTest {
 
 
     }
+
     @Test
     void overPopulationtest() {
         height = 3;
         width = 3;
         int ax = 1;
         int ay = 1;
-        boolean[][]field = createFieldTrue(height,width);
+        boolean[][] field = createFieldTrue(height, width);
         field[ax][ay] = false;
-        assertThat(overPolpulation(ax,ay,height,width)).isEqualTo(field);
+        assertThat(generation(ax, ay, height, width)).isEqualTo(field);
+
 
     }
+@Test
+    void survialTest() {
+        height = 3;
+        width = 3;
+        int ax = 1;
+        int ay = 1;
+        boolean[][] field = {
+                {false, false, false},
+                {true, true, true},
+                {false, false, false}
+        };
+        assertThat(generation(ax, ay, height, width)).isEqualTo(field);
+    }
+
+
+
     @Test
     void checkNeighborTest1IntheMiddel(){
         height = 3;

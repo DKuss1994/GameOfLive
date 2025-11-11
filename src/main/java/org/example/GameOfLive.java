@@ -92,13 +92,20 @@ public class GameOfLive {
 
         return count;
     }
-    public static boolean[][] overPolpulation(int ax,int ay,int height,int width){
+    public static boolean[][] generation(int ax, int ay, int height, int width){
         int count;
         boolean [][] field = createFieldTrue(height,width);
         count = checkNeighbor(ax,ay,height,width);
-        if(count>3){
-            field[ay][ax] = false;
+        if(field[ay][ax]){
+            // Überbevölkerung
+            if(count>3){
+                field[ay][ax] = false;
+
+            }
+
+
         }
+
         return field;
 
     }
