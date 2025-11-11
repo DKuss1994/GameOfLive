@@ -43,26 +43,20 @@ class GameOfLiveTest {
 
     @Test
     void printFieldtest() {
-        PrintStream originalOut = System.out;
-
         boolean [][] field = createField(height,width);
+        String [][] newField = new String[height][width];
+        for (int y = 0; y < field.length; y++) {
+            for (int x = 0; x < field[y].length; x++) {
+                if (field[y][x]) {
+                    newField[y][x] = "■";
+                } else {
+                    newField[y][x] = " ";
+                }
 
-
-        String[][] testField = new String[height][width];
-        String expected = "";
-        for (int y = 0; y < testField.length; y++) {
-            for (int x = 0; x < testField[y].length; x++) {
-                expected += testField[y][x];
             }
-            expected += "\n";
         }
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        assertThat(printField(field)).isEqualTo(newField);
 
-        System.setOut(new PrintStream(out));
-        printField(field);
-        String output = out.toString();
-        assertThat(output).isEqualTo(expected);
-        System.setOut(originalOut);
 
     }
     @Test

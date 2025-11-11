@@ -9,11 +9,17 @@ public class GameOfLive {
     static int width;
 
     public static void main(String[] args) {
-        width = 5;
-        height = 5;
+        width = 3;
+        height = 3;
+
 
         boolean[][] field = createField(height, width);
-        printField(field);
+        String [][] goodField = printField(field);
+        for(int y = 0;y< goodField.length;y++){
+            System.out.print(Arrays.toString(goodField[y]));
+
+        }
+
 
 
     }
@@ -31,10 +37,10 @@ public class GameOfLive {
 
     }
 
-    public static void printField(boolean[][] field) {
+    public static String[][] printField(boolean[][] field) {
 
         String[][] printField = new String[field.length][field[0].length];
-        for (int y = 0; y < field.length; y++) {
+    for (int y = 0; y < field.length; y++) {
             for (int x = 0; x < field[y].length; x++) {
                 if (field[y][x]) {
                     printField[y][x] = "■";
@@ -44,8 +50,7 @@ public class GameOfLive {
 
             }
         }
-        for (int y = 0; y < field.length; y++){
-        System.out.println(Arrays.toString(printField[y]));}
+        return printField;
     }
 }
 
