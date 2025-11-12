@@ -2,6 +2,7 @@ package org.example;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.example.GameOfLive.*;
+import static org.example.InstructionGameOfLive.*;
 
 
 import org.junit.jupiter.api.Test;
@@ -59,9 +60,22 @@ class GameOfLiveTest {
         width = 3;
         int ax = 1;
         int ay = 1;
-        boolean[][] field = createFieldTrue(height, width);
-        field[ax][ay] = false;
-        assertThat(generation(ax, ay, height, width)).isEqualTo(field);
+
+
+
+
+        boolean[][] testfield = {
+                {false, false, false},
+                {true, false, true},
+                {true, true, false}
+        };
+        boolean[][] field = {
+                {false, false, false},
+                {true, true, true},
+                {true, true, false}
+        };
+        int count = checkNeighbor(field,ax,ay);
+        assertThat(overPopulation(field,ax,ay,count)).isEqualTo(testfield);
 
 
     }
@@ -69,14 +83,21 @@ class GameOfLiveTest {
     void survialTest() {
         height = 3;
         width = 3;
+
         int ax = 1;
         int ay = 1;
+        boolean[][] testfield = {
+                {false, false, false},
+                {true, true, true},
+                {false, false, false}
+        };
         boolean[][] field = {
                 {false, false, false},
                 {true, true, true},
                 {false, false, false}
         };
-        assertThat(generation(ax, ay, height, width)).isEqualTo(field);
+    int count = checkNeighbor(field,ax,ay);
+        assertThat(survial(field,ax,ay,count)).isEqualTo(testfield);
     }
 
 
@@ -87,8 +108,9 @@ class GameOfLiveTest {
         width = 3;
         int ax = 1;
         int ay = 1;
+        boolean[][]field = createFieldTrue(height,width);
 
-     assertThat(checkNeighbor(ax,ay,height,width)).isEqualTo(8);
+     assertThat(checkNeighbor(field,ax,ay)).isEqualTo(8);
     }
     @Test
     void checkNeighborTest1IntheCorne(){
@@ -96,8 +118,11 @@ class GameOfLiveTest {
         width = 8;
         int ax = 0;
         int ay = 0;
+        boolean[][]field = createFieldTrue(height,width);
 
-     assertThat(checkNeighbor(ax,ay,height,width)).isEqualTo(3);
+
+
+        assertThat(checkNeighbor(field,ax,ay)).isEqualTo(3);
     }
     @Test
     void checkNeighborTest1IntheCorneRight(){
@@ -105,8 +130,10 @@ class GameOfLiveTest {
         width = 8;
         int ax = 7;
         int ay = 7;
+        boolean[][]field = createFieldTrue(height,width);
 
-     assertThat(checkNeighbor(ax,ay,height,width)).isEqualTo(3);
+
+        assertThat(checkNeighbor(field,ax,ay)).isEqualTo(3);
     }
 
 }

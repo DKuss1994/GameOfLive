@@ -66,48 +66,7 @@ public class GameOfLive {
         return printField;
     }
 
-    public static int checkNeighbor(int ax, int ay, int height, int width) {
-        int count;
-        int ny;
-        int nx;
-        boolean[][] field = createFieldTrue(height, width);
-        count = 0;
-        for(int y = -1; y<=1;y++){
-            for(int x = -1;x<= 1;x++){
-                ny =ay+ y;
-                nx = ax + x;
-                if(ny<0||nx<0||nx>=width||ny>=height){
-                    continue;
-                }
-                if (y==0&&x==0){
-                    continue;
-                }
-                if (field[ny][nx]){
-                    count++;
-                }
-            }
-        }
 
 
-
-        return count;
-    }
-    public static boolean[][] generation(int ax, int ay, int height, int width){
-        int count;
-        boolean [][] field = createFieldTrue(height,width);
-        count = checkNeighbor(ax,ay,height,width);
-        if(field[ay][ax]){
-            // Überbevölkerung
-            if(count>3){
-                field[ay][ax] = false;
-
-            }
-
-
-        }
-
-        return field;
-
-    }
 }
 
