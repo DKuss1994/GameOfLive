@@ -37,18 +37,7 @@ public class GameOfLive {
 
     }
 
-    public static boolean[][] createFieldTrue(int height, int width) {
-        boolean[][] field;
-        field = new boolean[height][width];
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                field[y][x] = true;
-            }
-        }
-        return field;
 
-
-    }
 
     public static String[][] printField(boolean[][] field) {
 

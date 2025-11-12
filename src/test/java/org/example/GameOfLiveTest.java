@@ -56,14 +56,8 @@ class GameOfLiveTest {
 
     @Test
     void overPopulationtest() {
-        height = 3;
-        width = 3;
         int ax = 1;
         int ay = 1;
-
-
-
-
         boolean[][] testfield = {
                 {false, false, false},
                 {true, false, true},
@@ -81,9 +75,6 @@ class GameOfLiveTest {
     }
 @Test
     void survialTest() {
-        height = 3;
-        width = 3;
-
         int ax = 1;
         int ay = 1;
         boolean[][] testfield = {
@@ -98,6 +89,23 @@ class GameOfLiveTest {
         };
     int count = checkNeighbor(field,ax,ay);
         assertThat(survial(field,ax,ay,count)).isEqualTo(testfield);
+    }
+@Test
+    void underPopulationTest() {
+        int ax = 1;
+        int ay = 1;
+        boolean[][] testfield = {
+                {false, false, false},
+                {false, false, true},
+                {false, false, false}
+        };
+        boolean[][] field = {
+                {false, false, false},
+                {false, true, true},
+                {false, false, false}
+        };
+    int count = checkNeighbor(field,ax,ay);
+        assertThat(underPopulation(field,ax,ay,count)).isEqualTo(testfield);
     }
 
 
@@ -134,6 +142,18 @@ class GameOfLiveTest {
 
 
         assertThat(checkNeighbor(field,ax,ay)).isEqualTo(3);
+    }
+    public static boolean[][] createFieldTrue(int height, int width) {
+        boolean[][] field;
+        field = new boolean[height][width];
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                field[y][x] = true;
+            }
+        }
+        return field;
+
+
     }
 
 }

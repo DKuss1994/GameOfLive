@@ -26,8 +26,6 @@ public class InstructionGameOfLive {
                 }
             }
         }
-
-
         return count;
     }
 
@@ -41,6 +39,17 @@ public class InstructionGameOfLive {
         }
         return field;
     }
+    public static boolean[][] underPopulation(boolean [][] field, int ax, int ay,int count) {
+        if (field[ay][ax]) {
+            if (count < 2) {
+                field[ay][ax] = false;
+
+            }
+
+        }
+        return field;
+    }
+
 
     public static boolean[][] survial(boolean[][] field, int ax, int ay,int count) {
         if (field[ay][ax]) {
