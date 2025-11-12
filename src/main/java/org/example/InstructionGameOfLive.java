@@ -49,6 +49,15 @@ public class InstructionGameOfLive {
         }
         return field;
     }
+    public static boolean[][] reborn(boolean[][] field,int ax, int ay, int count){
+        if(!field[ay][ax]){
+            if(count == 3){
+                field[ay][ax] = true;
+            }
+        }
+
+        return field;
+    }
 
 
     public static boolean[][] survial(boolean[][] field, int ax, int ay,int count) {

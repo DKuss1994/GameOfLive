@@ -107,6 +107,23 @@ class GameOfLiveTest {
     int count = checkNeighbor(field,ax,ay);
         assertThat(underPopulation(field,ax,ay,count)).isEqualTo(testfield);
     }
+@Test
+    void rebornTest() {
+        int ax = 1;
+        int ay = 1;
+        boolean[][] testfield = {
+                {true, false, false},
+                {false, true, true},
+                {false, false, true}
+        };
+        boolean[][] field = {
+                {true, false, false},
+                {false, false, true},
+                {false, false, true}
+        };
+    int count = checkNeighbor(field,ax,ay);
+        assertThat(reborn(field,ax,ay,count)).isEqualTo(testfield);
+    }
 
 
 
