@@ -3,9 +3,6 @@ package org.example;
 import static org.example.GameOfLive.*;
 
 public class InstructionGameOfLive {
-
-
-
     public static int checkNeighbor(boolean[][] field,int ax, int ay) {
         int count;
         int ny;

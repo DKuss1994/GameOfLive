@@ -68,12 +68,13 @@ class GameOfLiveTest {
                 {true, true, true},
                 {true, true, false}
         };
-        int count = checkNeighbor(field,ax,ay);
-        assertThat(overPopulation(field,ax,ay,count)).isEqualTo(testfield);
+        int count = checkNeighbor(field, ax, ay);
+        assertThat(overPopulation(field, ax, ay, count)).isEqualTo(testfield);
 
 
     }
-@Test
+
+    @Test
     void survialTest() {
         int ax = 1;
         int ay = 1;
@@ -87,10 +88,11 @@ class GameOfLiveTest {
                 {true, true, true},
                 {false, false, false}
         };
-    int count = checkNeighbor(field,ax,ay);
-        assertThat(survial(field,ax,ay,count)).isEqualTo(testfield);
+        int count = checkNeighbor(field, ax, ay);
+        assertThat(survial(field, ax, ay, count)).isEqualTo(testfield);
     }
-@Test
+
+    @Test
     void underPopulationTest() {
         int ax = 1;
         int ay = 1;
@@ -104,10 +106,11 @@ class GameOfLiveTest {
                 {false, true, true},
                 {false, false, false}
         };
-    int count = checkNeighbor(field,ax,ay);
-        assertThat(underPopulation(field,ax,ay,count)).isEqualTo(testfield);
+        int count = checkNeighbor(field, ax, ay);
+        assertThat(underPopulation(field, ax, ay, count)).isEqualTo(testfield);
     }
-@Test
+
+    @Test
     void rebornTest() {
         int ax = 1;
         int ay = 1;
@@ -121,45 +124,46 @@ class GameOfLiveTest {
                 {false, false, true},
                 {false, false, true}
         };
-    int count = checkNeighbor(field,ax,ay);
-        assertThat(reborn(field,ax,ay,count)).isEqualTo(testfield);
+        int count = checkNeighbor(field, ax, ay);
+        assertThat(reborn(field, ax, ay, count)).isEqualTo(testfield);
     }
 
 
-
     @Test
-    void checkNeighborTest1IntheMiddel(){
+    void checkNeighborTest1IntheMiddel() {
         height = 3;
         width = 3;
         int ax = 1;
         int ay = 1;
-        boolean[][]field = createFieldTrue(height,width);
+        boolean[][] field = createFieldTrue(height, width);
 
-     assertThat(checkNeighbor(field,ax,ay)).isEqualTo(8);
+        assertThat(checkNeighbor(field, ax, ay)).isEqualTo(8);
     }
+
     @Test
-    void checkNeighborTest1IntheCorne(){
+    void checkNeighborTest1IntheCorne() {
         height = 8;
         width = 8;
         int ax = 0;
         int ay = 0;
-        boolean[][]field = createFieldTrue(height,width);
+        boolean[][] field = createFieldTrue(height, width);
 
 
-
-        assertThat(checkNeighbor(field,ax,ay)).isEqualTo(3);
+        assertThat(checkNeighbor(field, ax, ay)).isEqualTo(3);
     }
+
     @Test
-    void checkNeighborTest1IntheCorneRight(){
+    void checkNeighborTest1IntheCorneRight() {
         height = 8;
         width = 8;
         int ax = 7;
         int ay = 7;
-        boolean[][]field = createFieldTrue(height,width);
+        boolean[][] field = createFieldTrue(height, width);
 
 
-        assertThat(checkNeighbor(field,ax,ay)).isEqualTo(3);
+        assertThat(checkNeighbor(field, ax, ay)).isEqualTo(3);
     }
+
     public static boolean[][] createFieldTrue(int height, int width) {
         boolean[][] field;
         field = new boolean[height][width];
