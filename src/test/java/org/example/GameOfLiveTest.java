@@ -111,6 +111,23 @@ class GameOfLiveTest {
     }
 
     @Test
+    void rebornCornerTest() {
+        int ax = 0;
+        int ay = 0;
+        boolean[][] testfield = {
+                {true, true, false},
+                {true, true, true},
+                {false, false, true}
+        };
+        boolean[][] field = {
+                {false, true, false},
+                {true, true, true},
+                {false, false, true}
+        };
+        int count = checkNeighbor(field, ax, ay);
+        assertThat(reborn(field, ax, ay, count)).isEqualTo(testfield);
+    }
+    @Test
     void rebornTest() {
         int ax = 1;
         int ay = 1;
