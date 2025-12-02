@@ -7,8 +7,9 @@ public class SystemSettingsGameOfLive {
     private int width;
     private int height;
     private ArrayList<Integer> bewohner;
+    private boolean [][]field;
 
-    public  boolean[][] createField() {
+    public  void setCreateField() {
         boolean[][] field;
         field = new boolean[height][width];
         for (int x = 0; x < width; x++) {
@@ -16,11 +17,12 @@ public class SystemSettingsGameOfLive {
                 field[y][x] = false;
             }
         }
-        return field;
+        this.field = field;
 
 
     }
-    public  void printField(boolean[][] field) {
+    public  String [][] printField() {
+        setCreateField();
 
         String[][] printField = new String[field.length][field[0].length];
         for (int y = 0; y < field.length; y++) {
@@ -34,7 +36,22 @@ public class SystemSettingsGameOfLive {
             }
         }
 
+return printField;
+        }
+        public void printFieldNice() {
+            String[][] printField = printField();
+            String symbole = "-";
+            for (int i = 0; i < field.length; i++) {
+                symbole += "---";
 
+            }
+
+
+            for (String[] x : printField) {
+
+                System.out.print(Arrays.toString(x) + "\n");
+                System.out.println(symbole);
+            }
         }
 
 
@@ -52,5 +69,9 @@ public class SystemSettingsGameOfLive {
 
     public void setWidth(int width) {
         this.width = width;
+    }
+
+    public boolean[][] getField() {
+        return field;
     }
 }

@@ -10,19 +10,14 @@ import org.junit.jupiter.api.Test;
 class GameOfLiveTest {
     SystemSettingsGameOfLive systemSettingsGameOfLiveTest = new SystemSettingsGameOfLive();
 
-
-
-
-
-
-
     @Test
     void fieldShouldCreateTest() {
         systemSettingsGameOfLiveTest.setWidth(10);
         systemSettingsGameOfLiveTest.setHeight(10);
+        systemSettingsGameOfLiveTest.setCreateField();
 
 
-        boolean[][] field = systemSettingsGameOfLiveTest.createField();
+        boolean[][] field = systemSettingsGameOfLiveTest.getField();
 
         // prüft ob Länge stimmt
         assertThat(field.length).isEqualTo(10);
@@ -33,7 +28,8 @@ class GameOfLiveTest {
     void fieldShouldDead() {
         systemSettingsGameOfLiveTest.setWidth(10);
         systemSettingsGameOfLiveTest.setHeight(10);
-        boolean[][] field = systemSettingsGameOfLiveTest.createField();
+        systemSettingsGameOfLiveTest.setCreateField();
+        boolean[][] field = systemSettingsGameOfLiveTest.getField();
 
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
