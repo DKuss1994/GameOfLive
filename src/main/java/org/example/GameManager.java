@@ -17,6 +17,18 @@ public class GameManager {
         while (true) {
 
             userQuestion.setBewohner();
+
+            if (systemSettingsGameOfLive.getField()[userQuestion.getY()][userQuestion.getX()]){
+                System.out.println("Feld ist bereits belegt!");
+                userQuestion.setStop();
+                if(userQuestion.isStop()) {
+                    break;
+                }
+                else {
+                    continue;
+                }
+
+            }
             systemSettingsGameOfLive.setChangeField(systemSettingsGameOfLive.getField(),userQuestion.getY(),userQuestion.getX());
             systemSettingsGameOfLive.printFieldNice();
             userQuestion.setStop();

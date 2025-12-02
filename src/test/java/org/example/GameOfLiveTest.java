@@ -4,11 +4,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.example.InstructionGameOfLive.*;
 
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
 class GameOfLiveTest {
     SystemSettingsGameOfLive systemSettingsGameOfLiveTest = new SystemSettingsGameOfLive();
+
+
 
     @Test
     void fieldShouldCreateTest() {
@@ -37,6 +40,7 @@ class GameOfLiveTest {
             }
         }
     }
+
     @Test
     void overPopulationtest() {
         int ax = 1;
@@ -110,6 +114,7 @@ class GameOfLiveTest {
         int count = checkNeighbor(field, ax, ay);
         assertThat(reborn(field, ax, ay, count)).isEqualTo(testfield);
     }
+
     @Test
     void rebornTest() {
         int ax = 1;
