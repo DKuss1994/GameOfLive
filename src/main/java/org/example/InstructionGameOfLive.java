@@ -3,6 +3,7 @@ package org.example;
 import static org.example.GameOfLive.*;
 
 public class InstructionGameOfLive {
+    boolean [][] field;
     public static int checkNeighbor(boolean[][] field,int ax, int ay) {
         int count;
         int ny;
@@ -68,6 +69,10 @@ public class InstructionGameOfLive {
 
         }
         return field;
+    }
+
+    public void setField(boolean[][] field) {
+        this.field = field;
     }
 }
 

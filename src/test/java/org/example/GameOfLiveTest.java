@@ -1,7 +1,6 @@
 package org.example;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.example.GameOfLive.*;
 import static org.example.InstructionGameOfLive.*;
 
 
@@ -9,24 +8,32 @@ import org.junit.jupiter.api.Test;
 
 
 class GameOfLiveTest {
-    int height = 10;
-    int width = 10;
+    SystemSettingsGameOfLive systemSettingsGameOfLiveTest = new SystemSettingsGameOfLive();
+
+
+
+
+
+
 
     @Test
     void fieldShouldCreateTest() {
+        systemSettingsGameOfLiveTest.setWidth(10);
+        systemSettingsGameOfLiveTest.setHeight(10);
 
 
-        boolean[][] field = createField(height, width);
+        boolean[][] field = systemSettingsGameOfLiveTest.createField();
 
         // prüft ob Länge stimmt
-        assertThat(field.length).isEqualTo(height);
-        assertThat(field[0].length).isEqualTo(width);
+        assertThat(field.length).isEqualTo(10);
+        assertThat(field[0].length).isEqualTo(10);
     }
 
     @Test
     void fieldShouldDead() {
-
-        boolean[][] field = createField(height, width);
+        systemSettingsGameOfLiveTest.setWidth(10);
+        systemSettingsGameOfLiveTest.setHeight(10);
+        boolean[][] field = systemSettingsGameOfLiveTest.createField();
 
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
@@ -34,26 +41,6 @@ class GameOfLiveTest {
             }
         }
     }
-
-    @Test
-    void printFieldTest() {
-        boolean[][] field = createField(height, width);
-        String[][] newField = new String[height][width];
-        for (int y = 0; y < field.length; y++) {
-            for (int x = 0; x < field[y].length; x++) {
-                if (field[y][x]) {
-                    newField[y][x] = "■";
-                } else {
-                    newField[y][x] = " ";
-                }
-
-            }
-        }
-        assertThat(printField(field)).isEqualTo(newField);
-
-
-    }
-
     @Test
     void overPopulationtest() {
         int ax = 1;
@@ -148,8 +135,8 @@ class GameOfLiveTest {
 
     @Test
     void checkNeighborTest1IntheMiddel() {
-        height = 3;
-        width = 3;
+        int height = 3;
+        int width = 3;
         int ax = 1;
         int ay = 1;
         boolean[][] field = createFieldTrue(height, width);
@@ -159,8 +146,8 @@ class GameOfLiveTest {
 
     @Test
     void checkNeighborTest1IntheCorne() {
-        height = 8;
-        width = 8;
+        int height = 8;
+        int width = 8;
         int ax = 0;
         int ay = 0;
         boolean[][] field = createFieldTrue(height, width);
@@ -171,8 +158,8 @@ class GameOfLiveTest {
 
     @Test
     void checkNeighborTest1IntheCorneRight() {
-        height = 8;
-        width = 8;
+        int height = 8;
+        int width = 8;
         int ax = 7;
         int ay = 7;
         boolean[][] field = createFieldTrue(height, width);
