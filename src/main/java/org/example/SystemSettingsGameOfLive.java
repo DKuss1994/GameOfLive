@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SystemSettingsGameOfLive {
-    private int width;
-    private int height;
+    private int width ;
+    private int height ;
     private ArrayList<Integer> bewohner;
-    private boolean [][]field;
+    private boolean [][]field ;
+
+
 
     public  void setCreateField() {
         boolean[][] field;
@@ -21,9 +23,13 @@ public class SystemSettingsGameOfLive {
 
 
     }
-    public  String [][] printField() {
-        setCreateField();
 
+    public  void setChangeField(boolean[][] field,int y, int x) {
+                field[y][x] = true;
+                this.field = field;
+    }
+
+    public  String [][] printField() {
         String[][] printField = new String[field.length][field[0].length];
         for (int y = 0; y < field.length; y++) {
             for (int x = 0; x < field[y].length; x++) {

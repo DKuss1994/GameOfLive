@@ -6,14 +6,30 @@ public class GameManager {
     public void startGame() {
         UserQuestion userQuestion = new UserQuestion();
         SystemSettingsGameOfLive systemSettingsGameOfLive = new SystemSettingsGameOfLive();
+        // Hier wird die Frage von User erstellt wie hoch und wie breit er das Spielfeld haben will.
         userQuestion.setSpielfeldHeightAndWidth();
+        // Hier wird es generiert
         systemSettingsGameOfLive.setHeight(userQuestion.getHeight());
         systemSettingsGameOfLive.setWidth(userQuestion.getWidth());
-        systemSettingsGameOfLive.printFieldNice();
+        systemSettingsGameOfLive.setCreateField();
 
 
+        while (true) {
+
+            userQuestion.setBewohner();
+            systemSettingsGameOfLive.setChangeField(systemSettingsGameOfLive.getField(),userQuestion.getY(),userQuestion.getX());
+            systemSettingsGameOfLive.printFieldNice();
+            userQuestion.setStop();
+            if(userQuestion.isStop()){
+                break;
+            }
 
 
-
+        }
+        while (true){
+            systemSettingsGameOfLive.printFieldNice();
+        }
     }
 }
+
+
