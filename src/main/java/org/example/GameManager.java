@@ -39,6 +39,12 @@ public class GameManager {
             systemSettingsGameOfLive.printFieldNice();
             System.out.println("Lebenszyklus "+count);
             systemSettingsGameOfLive.newZyklus();
+            try {
+                Thread.sleep(3000);
+            }
+            catch (InterruptedException e){
+                e.printStackTrace();
+            }
             count++;
 
             }
