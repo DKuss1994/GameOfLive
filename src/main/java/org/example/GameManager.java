@@ -12,36 +12,37 @@ public class GameManager {
         systemSettingsGameOfLive.setHeight(userQuestion.getHeight());
         systemSettingsGameOfLive.setWidth(userQuestion.getWidth());
         systemSettingsGameOfLive.setCreateField();
-
-
         while (true) {
-
             userQuestion.setBewohner();
 
-            if (systemSettingsGameOfLive.getField()[userQuestion.getY()][userQuestion.getX()]){
+            if (systemSettingsGameOfLive.getField()[userQuestion.getY()][userQuestion.getX()]) {
                 System.out.println("Feld ist bereits belegt!");
                 userQuestion.setStop();
-                if(userQuestion.isStop()) {
+                if (userQuestion.isStop()) {
                     break;
-                }
-                else {
+                } else {
                     continue;
                 }
 
             }
-            systemSettingsGameOfLive.setChangeField(systemSettingsGameOfLive.getField(),userQuestion.getY(),userQuestion.getX());
+            systemSettingsGameOfLive.setChangeField(systemSettingsGameOfLive.getField(), userQuestion.getY(), userQuestion.getX());
             systemSettingsGameOfLive.printFieldNice();
             userQuestion.setStop();
-            if(userQuestion.isStop()){
+            if (userQuestion.isStop()) {
                 break;
             }
 
 
         }
-        while (true){
+        int count = 0;
+        while (count != 10) {
             systemSettingsGameOfLive.printFieldNice();
+            systemSettingsGameOfLive.newZyklus();
+            count++;
+
+            }
         }
     }
-}
+
 
 

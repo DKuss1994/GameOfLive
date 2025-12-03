@@ -10,6 +10,32 @@ public class SystemSettingsGameOfLive {
     private boolean[][] field;
 
 
+/*Array{
+{1,2},
+{2,2},
+{4,3},
+*/
+
+    public void setField(boolean[][] field) {
+        this.field = field;
+    }
+
+    public void newZyklus(){
+        boolean [][] changeField = new boolean[height][width];
+
+        for (int y = 0; y < field.length; y++) {
+            for (int x = 0; x < field[y].length; x++) {
+                changeField[y][x] = InstructionGameOfLive.overPopulation(field,x,y);
+                changeField[y][x] = InstructionGameOfLive.underPopulation(field,x,y);
+                changeField[y][x] = InstructionGameOfLive.survial(field,x,y);
+                changeField[y][x] = InstructionGameOfLive.reborn(field,x,y);
+            }
+        }
+        setField(changeField);
+
+
+    }
+
     public void setCreateField() {
         boolean[][] field;
         field = new boolean[height][width];
@@ -50,6 +76,7 @@ public class SystemSettingsGameOfLive {
     public void printFieldNice() {
         String[][] printField = printField();
         String symbole = "-";
+        System.out.println("Next cycle");
         for (int i = 0; i < field.length; i++) {
             symbole += "---";
 

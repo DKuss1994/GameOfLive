@@ -3,8 +3,9 @@ package org.example;
 import static org.example.GameOfLive.*;
 
 public class InstructionGameOfLive {
-    boolean [][] field;
-    public static int checkNeighbor(boolean[][] field,int ax, int ay) {
+    boolean[][] field;
+
+    private static int checkNeighbor(boolean[][] field, int ax, int ay) {
         int count;
         int ny;
         int nx;
@@ -27,48 +28,71 @@ public class InstructionGameOfLive {
         return count;
     }
 
-    public static boolean[][] overPopulation(boolean [][] field, int ax, int ay,int count) {
+    public static boolean overPopulation(boolean[][] field, int ax, int ay) {
+        int count = checkNeighbor(field, ax, ay);
         if (field[ay][ax]) {
             if (count > 3) {
-                field[ay][ax] = false;
+                return false;
+
+            } else {
+                return true;
 
             }
 
+        } else {
+            return false;
         }
-        return field;
+
     }
-    public static boolean[][] underPopulation(boolean [][] field, int ax, int ay,int count) {
+
+    public static boolean underPopulation(boolean[][] field, int ax, int ay) {
+        int count = checkNeighbor(field, ax, ay);
         if (field[ay][ax]) {
             if (count < 2) {
-                field[ay][ax] = false;
+                return false;
 
+            } else {
+                return true;
             }
 
+
+        } else {
+            return false;
         }
-        return field;
+
     }
-    public static boolean[][] reborn(boolean[][] field,int ax, int ay, int count){
-        if(!field[ay][ax]){
-            if(count == 3){
-                field[ay][ax] = true;
+
+    public static boolean reborn(boolean[][] field, int ax, int ay) {
+        int count = checkNeighbor(field, ax, ay);
+        if (!field[ay][ax]) {
+            if (count == 3) {
+                return true;
+            } else {
+                return false;
             }
+        } else {
+            return true;
         }
 
-        return field;
+
     }
 
 
-    public static boolean[][] survial(boolean[][] field, int ax, int ay,int count) {
+    public static boolean survial(boolean[][] field, int ax, int ay) {
+        int count = checkNeighbor(field, ax, ay);
         if (field[ay][ax]) {
 
             if (count == 3 || count == 2) {
-                field[ay][ax] = true;
+                return true;
 
+            } else {
+                return false;
             }
 
 
+        } else {
+            return false;
         }
-        return field;
     }
 
     public void setField(boolean[][] field) {
