@@ -41,7 +41,7 @@ public class SystemSettingsGameOfLive {
 
 
                 }
-                else if(!field[y][x]){
+                else {
                     if(count == 3){
                         changeField[y][x] = InstructionGameOfLive.reborn(field,x,y);
                     }

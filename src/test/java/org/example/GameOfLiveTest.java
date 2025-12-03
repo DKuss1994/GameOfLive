@@ -1,6 +1,7 @@
 package org.example;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.array;
 import static org.example.InstructionGameOfLive.*;
 
 
@@ -55,8 +56,8 @@ class GameOfLiveTest {
                 {true, true, true},
                 {true, true, false}
         };
-        int count = checkNeighbor(field, ax, ay);
-        assertThat(overPopulation(field, ax, ay, count)).isEqualTo(testfield);
+        field[1][1] = overPopulation(field,ax,ay);
+        assertThat(field).isEqualTo(testfield);
 
 
     }
@@ -75,8 +76,8 @@ class GameOfLiveTest {
                 {true, true, true},
                 {false, false, false}
         };
-        int count = checkNeighbor(field, ax, ay);
-        assertThat(survial(field, ax, ay, count)).isEqualTo(testfield);
+        field[1][1] = survial(field, ax, ay);
+        assertThat(field).isEqualTo(testfield);
     }
 
     @Test
@@ -93,26 +94,26 @@ class GameOfLiveTest {
                 {false, true, true},
                 {false, false, false}
         };
-        int count = checkNeighbor(field, ax, ay);
-        assertThat(underPopulation(field, ax, ay, count)).isEqualTo(testfield);
+        field[1][1] = underPopulation(field, ax, ay);
+        assertThat(field).isEqualTo(testfield);
     }
 
     @Test
     void rebornCornerTest() {
-        int ax = 0;
         int ay = 0;
+        int ax = 2;
         boolean[][] testfield = {
-                {true, true, false},
-                {true, true, true},
-                {false, false, true}
+                {false, true, true},
+                {false, true, true},
+                {false, false, false}
         };
         boolean[][] field = {
                 {false, true, false},
-                {true, true, true},
-                {false, false, true}
+                {false, true, true},
+                {false, false, false}
         };
-        int count = checkNeighbor(field, ax, ay);
-        assertThat(reborn(field, ax, ay, count)).isEqualTo(testfield);
+        field[ay][ax] = reborn(field,ax,ay);
+        assertThat(field).isEqualTo(testfield);
     }
 
     @Test
@@ -129,8 +130,8 @@ class GameOfLiveTest {
                 {false, false, true},
                 {false, false, true}
         };
-        int count = checkNeighbor(field, ax, ay);
-        assertThat(reborn(field, ax, ay, count)).isEqualTo(testfield);
+        field[1][1]= reborn(field, ax, ay);
+        assertThat(field).isEqualTo(testfield);
     }
 
 

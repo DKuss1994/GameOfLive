@@ -52,12 +52,12 @@ public class UserQuestion {
             try {
                 int wert = sc.nextByte();
 
-                if (wert >= 0&&wert<this.height) {
+                if (wert >= 0&&wert<this.width) {
                     this.x=wert;
                     return;
                 } else if(wert<0){
                     System.out.println("Der Wert muss größer als 0 sein.");
-                } else if (wert>this.height) {
+                } else if (wert>this.width) {
                     System.out.println("Der Wert muss kleiner sein als "+(this.width-1)+" sein.");
 
                 }
