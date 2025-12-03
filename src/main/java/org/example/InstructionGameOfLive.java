@@ -5,7 +5,7 @@ import static org.example.GameOfLive.*;
 public class InstructionGameOfLive {
     boolean[][] field;
 
-    private static int checkNeighbor(boolean[][] field, int ax, int ay) {
+    public static int checkNeighbor(boolean[][] field, int ax, int ay) {
         int count;
         int ny;
         int nx;

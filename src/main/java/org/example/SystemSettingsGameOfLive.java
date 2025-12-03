@@ -22,13 +22,34 @@ public class SystemSettingsGameOfLive {
 
     public void newZyklus(){
         boolean [][] changeField = new boolean[height][width];
+        int count;
 
         for (int y = 0; y < field.length; y++) {
             for (int x = 0; x < field[y].length; x++) {
-                changeField[y][x] = InstructionGameOfLive.overPopulation(field,x,y);
-                changeField[y][x] = InstructionGameOfLive.underPopulation(field,x,y);
-                changeField[y][x] = InstructionGameOfLive.survial(field,x,y);
-                changeField[y][x] = InstructionGameOfLive.reborn(field,x,y);
+                count = InstructionGameOfLive.checkNeighbor(field,x,y);
+                if (field[y][x]) {
+                    if(count > 3){
+                        changeField[y][x] = InstructionGameOfLive.overPopulation(field,x,y);
+                    } else if (count<2) {
+                        changeField[y][x] = InstructionGameOfLive.underPopulation(field,x,y);
+                    }
+                    else if(count == 2 || count == 3){
+                        changeField[y][x] = InstructionGameOfLive.survial(field,x,y);
+                    }
+
+
+
+
+                }
+                else if(!field[y][x]){
+                    if(count == 3){
+                        changeField[y][x] = InstructionGameOfLive.reborn(field,x,y);
+                    }
+
+
+                }
+
+
             }
         }
         setField(changeField);
