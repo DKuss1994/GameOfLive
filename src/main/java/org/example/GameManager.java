@@ -1,9 +1,9 @@
 package org.example;
 
-import java.util.Arrays;
 
 public class GameManager {
     public void startGame() {
+
         UserQuestion userQuestion = new UserQuestion();
         SystemSettingsGameOfLive systemSettingsGameOfLive = new SystemSettingsGameOfLive();
         // Hier wird die Frage von User erstellt wie hoch und wie breit er das Spielfeld haben will.
@@ -35,8 +35,9 @@ public class GameManager {
 
         }
         int count = 0;
-        while (count != 10) {
+        while (true) {
             systemSettingsGameOfLive.printFieldNice();
+            System.out.println("Lebenszyklus "+count);
             systemSettingsGameOfLive.newZyklus();
             count++;
 

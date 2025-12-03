@@ -97,8 +97,7 @@ public class SystemSettingsGameOfLive {
     public void printFieldNice() {
         String[][] printField = printField();
         String symbole = "-";
-        System.out.println("Next cycle");
-        for (int i = 0; i < field.length; i++) {
+        for (int i = 0; i < field[0].length; i++) {
             symbole += "---";
 
         }
