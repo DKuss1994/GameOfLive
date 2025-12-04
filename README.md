@@ -90,7 +90,7 @@ Zellen zu platzieren
 
 Das Spiel zu starten und zu stoppen
 
-![Demo GIF](https://giphy.com/gifs/86Va927mZxTL6oNS1Z)
+![Mein GIF](https://media.giphy.com/media/86Va927mZxTL6oNS1Z/giphy.gif)
 ```bash
 Beispielhafte Darstellung im Terminal
 [■,  ,  ,  , ■]
