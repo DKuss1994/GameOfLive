@@ -90,13 +90,15 @@ Zellen zu platzieren
 
 Das Spiel zu starten und zu stoppen
 
-![Mein GIF](https://media.giphy.com/media/86Va927mZxTL6oNS1Z/giphy.gif)
+
 ```bash
+
 Beispielhafte Darstellung im Terminal
-[■,  ,  ,  , ■]
-[ , ■,  , ■,  ]
-[ ,  , ■,  ,  ]
------------------
+
+![Mein GIF](https://media.giphy.com/media/86Va927mZxTL6oNS1Z/giphy.gif)
+
+
+
 ```
 Tests
 
