@@ -91,7 +91,6 @@ Zellen zu platzieren
 Das Spiel zu starten und zu stoppen
 
 
-```bash
 
 Beispielhafte Darstellung im Terminal
 
@@ -99,7 +98,6 @@ Beispielhafte Darstellung im Terminal
 
 
 
-```
 Tests
 
 JUnit Tests sind enthalten, um sicherzustellen:
