@@ -89,6 +89,8 @@ Spielfeldgröße festzulegen
 Zellen zu platzieren
 
 Das Spiel zu starten und zu stoppen
+
+![Demo GIF](https://giphy.com/gifs/86Va927mZxTL6oNS1Z)
 ```bash
 Beispielhafte Darstellung im Terminal
 [■,  ,  ,  , ■]
